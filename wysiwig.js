@@ -1,5 +1,6 @@
 // Creating an Array
 var outputEl = document.getElementById("container");
+var inputTextFromDOM = document.getElementById("inputEl")
 var famousPeople = [
 		{
 		  title: "Singer",
@@ -71,6 +72,13 @@ function selectedFamousPerson(e) {
 
 
 outputEl.addEventListener("click", selectedFamousPerson);
+
+
+var mirrorText = function (event) {
+	outputEl.innerHTML += event.key;
+}
+inputTextFromDOM.addEventListener("keypress", mirrorText);
+
 
 printPeopleToDom();
 
