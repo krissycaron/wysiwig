@@ -75,7 +75,6 @@ function selectedFamousPerson(e) {
 	} 
 	// When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
 	inputTextFromDOM.focus();
-	console.log(inputTextFromDOM.focus);
 }
 
 
@@ -84,14 +83,22 @@ outputEl.addEventListener("click", selectedFamousPerson);
 // When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 // When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 
-function mirrorText (event) {
-	if (event.keyCode !==13) {
-	// selectedBio.value === "";
+inputTextFromDOM.addEventListener("keypress", function (event) {
+	var	editBio=selectedBio
+		editBio.innerHTML= "";
+	var mimickText=inputTextFromDOM.value;
+	editBio.innerHTML += mimickText;
+	console.log(editBio);
 	// inputTextFromDOM.value=== "";
-	console.log(inputTextFromDOM);
+});
+
+inputTextFromDOM.addEventListener("keypress", clearInput); 
+function clearInput(event){
+	if (event.keyCode === 13) {
+		inputTextFromDOM.value = "";
 	}
 }
-inputTextFromDOM.addEventListener("keypress", mirrorText);
+// inputTextFromDOM.addEventListener("keypress", mirrorText);
 
 printPeopleToDom();
 
