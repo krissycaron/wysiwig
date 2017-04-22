@@ -1,0 +1,20 @@
+/*For every even numbered element, have a light yellow background.*/
+
+x	
+
+.person:nth-child(even) {
+	background-color: lightyellow;
+}
+
+/*For every odd numbered element, have a light blue background.*/
+.person:nth-child(odd) {
+	background-color: lightblue;
+}
+
+/*When you click on one of the person elements, a dotted border should appear around it.*/
+.selected {
+	border: 2px dotted purple;
+}
+
+
+
